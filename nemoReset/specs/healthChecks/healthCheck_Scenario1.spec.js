@@ -27,7 +27,6 @@ describe('ECommerce - Health Check Test', function() {
     gigyaLoginPage.login(config[testEnv].student.email, config[testEnv].student.password);
     billingDetailsPage.waitForBillingPageToAppear();
     billingDetailsPage.validateBillingDetailsName(config[testEnv].student.fullName);
-    browser.pause(10000)
   });
 
   after(function (browser, done) {
