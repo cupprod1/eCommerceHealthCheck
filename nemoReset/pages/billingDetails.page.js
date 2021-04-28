@@ -1,4 +1,3 @@
-var actions = require("./../lib/browserAction.js");
 require("./../lib/logging.js");
 
 module.exports = {
@@ -16,9 +15,9 @@ module.exports = {
         {
             waitForBillingPageToAppear: function() {
             	this.api.perform(function() {
-                    testlog.info("Waiting for Billing Details Page to appear")
+                    testlog.info("Waiting for Billing Details Page to get load")
                 })
-                actions.waitForElementVisible(this,this.elements.pageHeader.selector,120000);
+                this.api.waitForElementVisible(this.elements.pageHeader.selector,120000,"Billing Details Page is unable to load successfully");
                 this.api.perform(function() {
                     testlog.info("Billing Details Page is loaded successfully")
                 })
@@ -28,7 +27,10 @@ module.exports = {
                 this.api.perform(function() {
                     testlog.info("Validating Student Full Name on Billing Details Page")
                 })
-                this.api.assert.containsText(this.elements.cardHolderName.selector,name)
+                this.api.assert.containsText(this.elements.cardHolderName.selector,name,"User Name on Billing Details Page is not as expected. Konakart Integration could be down")
+                this.api.perform(function() {
+                    testlog.info("Student Full Name is as expected on Billing Details Page")
+                })
             }
         }
     ]

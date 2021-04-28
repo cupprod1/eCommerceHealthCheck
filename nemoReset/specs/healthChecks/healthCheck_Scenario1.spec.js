@@ -8,9 +8,10 @@ describe('ECommerce - Health Check Test', function() {
     gigyaLoginPage = browser.page['gigyaLogin.page']();
     billingDetailsPage = browser.page['billingDetails.page']();
     
+    console.log("Launching URL: " + config[testEnv].shopFrontURL)
     browser
       .url(config[testEnv].shopFrontURL, function() {
-        console.log("Launching URL: " + config[testEnv].shopFrontURL)
+        console.log("URL: " + config[testEnv].shopFrontURL + " launched successfully")
       })
       .maximizeWindow(function() {
         done();

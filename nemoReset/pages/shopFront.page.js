@@ -1,4 +1,3 @@
-var actions = require("./../lib/browserAction.js");
 require("./../lib/logging.js");
 
 module.exports = {
@@ -12,16 +11,21 @@ module.exports = {
         {
             clickBuyNowButton: function() {
             	this.api.perform(function() {
-                    testlog.info("Checking ShopFront page is loaded or not")
+                    testlog.info("Waiting for ShopFront page to get load")
                 })
-                actions.waitForElementVisible(this,this.elements.buyNowButton.selector,60000);
+                this.api.waitForElementVisible(this.elements.buyNowButton.selector,120000,"ShopFront Page is unable to load successfully");
                 this.api.perform(function() {
                     testlog.info("ShopFront Page is loaded successfully")
                 })
                 this.api.perform(function() {
-                    testlog.info("Clicking on Buy Now Button on Shopfront")
+                    testlog.info("Clicking on Buy Now Button on ShopFront page")
                 })
-                actions.click(this,this.elements.buyNowButton.selector);
+                this.api.click(this.elements.buyNowButton.selector, function(result) {
+                    this.assert.equal(result.status, 0, "Buy Now Button is not clickable");
+                });
+                this.api.perform(function() {
+                    testlog.info("Buy Now Button on ShopFront page is clicked")
+                })
             }
         }
     ]

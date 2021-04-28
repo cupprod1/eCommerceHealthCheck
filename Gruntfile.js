@@ -22,15 +22,16 @@ module.exports = function (grunt) {
                 src_folders : ['./nemoReset/specs'], // Update the path based on your application
                 page_objects_path : './nemoReset/pages/',   // path where page object files will be loaded from. Update the path based on your application
                 test_runner : {
-                    type : 'mocha',
-                    options : {
-                        ui : 'bdd',
-                        reporter : 'mochawesome',
-                        reporterOptions: {
-                            reportName: 'index',
-                            reportDir: './reports'
-                        }
-                    }},
+                    type : 'mocha'
+                    // options : {
+                    //     ui : 'bdd',
+                    //     reporter : 'mochawesome',
+                    //     reporterOptions: {
+                    //         reportName: 'index',
+                    //         reportDir: './reports'
+                    //     }
+                    // }
+                },
                 test_settings : {
                     chrome: {selenium_host : '127.0.0.1',
                         selenium_port : 5554,
@@ -175,121 +176,6 @@ module.exports = function (grunt) {
                         cli_args : {
                           //  'webdriver.chrome.driver' : 'node_modules/chromedriver/lib/chromedriver/chromedriver.exe'
                           'webdriver.chrome.driver': chromedriver.path
-                        }},
-
-                        setupData: {selenium_host : '127.0.0.1',
-                        selenium_port : 5554,
-                        end_session_on_fail: true,
-                        src_folders : ['./nemoReset/specs/setupData/setupData.spec.js'], // Update the path based on your application
-                        screenshots : {
-                            enabled : true,
-                            on_failure : true,
-                            on_error : true,
-                            path : './screenshots'
-                        },
-                        desiredCapabilities : {  // specify browser name along with other capabilities
-                            browserName : 'chrome',
-                            javascriptEnabled : true,
-                            acceptSslCerts : true,
-                            'chromeOptions' : {
-                                 //"args" : ['headless']
-                                "args" : ['start-maximized', 'no-sandbox', 'disable-dev-shm-usage']                                
-                            }},
-                        cli_args : {
-                          //  'webdriver.chrome.driver' : 'node_modules/chromedriver/lib/chromedriver/chromedriver.exe'
-                          'webdriver.chrome.driver': chromedriver.path
-                        }},
-
-
-                        smokeTest2: {selenium_host : '127.0.0.1',
-                        selenium_port : 5554,
-                        end_session_on_fail: false,
-                        src_folders : ['./nemoReset/specs/supportAdmin.spec.js'], // Update the path based on your application
-                        screenshots : {
-                            enabled : true,
-                            on_failure : false,
-                            path : 'screenshots'
-                        },
-                        desiredCapabilities : {  // specify browser name along with other capabilities
-                            browserName : 'chrome',
-                            javascriptEnabled : true,
-                            acceptSslCerts : true,
-                            'chromeOptions' : {
-                                 //"args" : ['headless']
-                                "args" : ['start-maximized']                                
-                            }},
-                        cli_args : {
-                          //  'webdriver.chrome.driver' : 'node_modules/chromedriver/lib/chromedriver/chromedriver.exe'
-                          'webdriver.chrome.driver': chromedriver.path
-                        }},
-                        institution: {selenium_host : '127.0.0.1',
-                        selenium_port : 5554,
-                        end_session_on_fail: false,
-                        src_folders : ['./nemoReset/specs/institution.spec.js'], // Update the path based on your application
-                        screenshots : {
-                            enabled : true,
-                            on_failure : false,
-                            path : 'screenshots'
-                        },
-                        desiredCapabilities : {  // specify browser name along with other capabilities
-                            browserName : 'chrome',
-                            javascriptEnabled : true,
-                            acceptSslCerts : true,
-                            'chromeOptions' : {
-                                 //"args" : ['headless']
-                                "args" : ['start-maximized']                                
-                            }},
-                        cli_args : {
-                          //  'webdriver.chrome.driver' : 'node_modules/chromedriver/lib/chromedriver/chromedriver.exe'
-                          'webdriver.chrome.driver': chromedriver.path
-                        }},
-                    smokeTestSaucelabs : {
-                        selenium_host: 'ondemand.saucelabs.com',
-                        selenium_port: '80',
-                        end_session_on_fail: false,
-                        src_folders : ['./nemoReset/specs/basicTest.spec.js'], // Update the path based on your application
-                        screenshots : {
-                            enabled : true,
-                            on_failure : false,
-                            path : '/screenshots'
-                        },
-                        username : saucelabsUserName,
-                        access_key : saucelabsAccessKey,
-                        desiredCapabilities : {       // specify browser name along with other capabilities
-                            name: 'appSmokeTest',
-                            browserName : 'chrome',
-                            javascriptEnabled : true,
-                            acceptSslCerts : true,
-                            platform: 'Win8',
-                            "screen-resolution": '1920x1080'
-                        }
-                    },
-                    smokeTestBrowserstack : {
-                        selenium_host: 'hub-cloud.browserstack.com',
-                        selenium_port: '80',
-                        end_session_on_fail: false,
-                        src_folders : ['./nemoReset/specs/smokeTestProd.spec.js'],
-                        screenshots : {
-                            enabled : true,
-                            on_failure : true,
-                            path : 'screenshots'
-                        },
-                        username : browserstackUserName,
-                        access_key : browserstackAccessKey,
-                        desiredCapabilities : {       // specify browser name along with other capabilities
-                            name: 'prodSmokeTest',
-                            javascriptEnabled : true,
-                            acceptSslCerts : true,
-                            'os': 'Windows',
-                            'os_version': '8.1',
-                            'browser': 'Chrome',
-                            'browser_version': '60.0',
-                            'chromeOptions' : {
-                                "args" : ["start-maximized"]
-                            },
-                            'resolution': '1920x1080',
-                            'browserstack.debug':true,
-                            'browserstack.networkLogs':true
                         }
                     }
                 }

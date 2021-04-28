@@ -34,15 +34,15 @@ module.exports = {
                     args: [ 'start-maximized']  }
             } ,
         test_runner : {
-            type : 'mocha',
-            options : {
-                ui : 'bdd',
-                reporter : 'mochawesome',
-                reporterOptions: {
-                    reportName: 'index',
-                    reportDir: 'reports'
-                }
-            }
+            type : 'mocha'
+            // options : {
+            //     ui : 'bdd',
+            //     reporter : 'mochawesome',
+            //     reporterOptions: {
+            //         reportName: 'index',
+            //         reportDir: 'reports'
+            //     }
+            // }
         }
     },
     smokeTestHeadless : {

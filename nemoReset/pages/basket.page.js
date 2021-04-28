@@ -1,4 +1,3 @@
-var actions = require("./../lib/browserAction.js");
 require("./../lib/logging.js");
 
 module.exports = {
@@ -26,7 +25,7 @@ module.exports = {
             	this.api.perform(function() {
                     testlog.info("Waiting for Basket Page to get load")
                 })
-                actions.waitForElementVisible(this,this.elements.productItem.selector,120000);
+                this.api.waitForElementVisible(this.elements.productItem.selector,120000,"Basket Page is unable to load successfully");
                 this.api.perform(function() {
                     testlog.info("Basket Page is loaded successfully")
                 })
@@ -36,18 +35,26 @@ module.exports = {
                 this.api.perform(function() {
                     testlog.info("Validating the product name on Basket Page")
                 })
-                this.api.assert.containsText(this.elements.productItemName.selector,name)
+                this.api.assert.containsText(this.elements.productItemName.selector,name,"Product Name on Basket Page is not as expected. Konakart Integration could be down")
+                this.api.perform(function() {
+                    testlog.info("Product Name is as expected on Basket Page")
+                })
             },
 
             clickCheckoutButton: function() {
                 this.api.perform(function() {
                     testlog.info("Checking if Go To Checkout button is visible on Basket Page")
                 })
-                actions.waitForElementVisible(this,this.elements.goToCheckoutButton.selector,60000);
+                this.api.waitForElementVisible(this.elements.goToCheckoutButton.selector,60000,"Go To Checkout button is not visible");
                 this.api.perform(function() {
                     testlog.info("Clicking on Go To Checkout button on Basket Page")
                 })
-                actions.click(this,this.elements.goToCheckoutButton.selector)
+                this.api.click(this.elements.goToCheckoutButton.selector, function(result) {
+                    this.assert.equal(result.status, 0, "Go To Checkout Button is not clickable");
+                })
+                this.api.perform(function() {
+                    testlog.info("Go To Checkout button on Basket Page is clicked")
+                })
             }
         }
     ]
