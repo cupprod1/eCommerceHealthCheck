@@ -24,6 +24,8 @@ describe('ECommerce - Health Check Test', function() {
     basketPage.waitForProductItemToAppear();
     basketPage.validateProductItemName(config[testEnv].productItemName);  
     basketPage.clickCheckoutButton();
+    basketPage.waitForConfirmationDialog();
+    basketPage.clickContinueButton();
     gigyaLoginPage.waitForLoginPageToAppear();
     gigyaLoginPage.login(config[testEnv].student.email, config[testEnv].student.password);
     billingDetailsPage.waitForBillingPageToAppear();
