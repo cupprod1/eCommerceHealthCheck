@@ -12,7 +12,6 @@ describe('ECommerce - Health Check Test', function() {
     browser
       .url(config[testEnv].shopFrontURL, function() {
         console.log("URL: " + config[testEnv].shopFrontURL + " launched successfully")
-        browser.pause(10000)
       })
       .maximizeWindow(function() {
         done();
