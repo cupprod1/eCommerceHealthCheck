@@ -125,7 +125,7 @@ module.exports = function (grunt) {
                             acceptSslCerts : true,
                             'chromeOptions' : {
                                  //"args" : ['headless']
-                                "args" : ['start-maximized', 'no-sandbox', 'disable-dev-shm-usage']                                
+                                "args" : ['start-maximized', 'headless', 'no-sandbox', 'disable-dev-shm-usage']                                
                             }},
                         cli_args : {
                           //  'webdriver.chrome.driver' : 'node_modules/chromedriver/lib/chromedriver/chromedriver.exe'
