@@ -43,12 +43,12 @@ module.exports = {
 
     "prod": {
         "launchUrl":"https://qa-ecommerce.cambridgeone.org/basket?token=b999fe90-79cf-47dc-8453-1e6d461958eb",
-        "shopFrontURL": "https://qa.testandtrain.com/",        
+        "shopFrontURL": "https://www.testandtrain.com/",        
         "orderStatusPageURL": "",
         "student": {
-            "email":"cupqastudent3@yopmail.com",
-            "password":"Compro11",
-            "fullName":"Student Test"
+            "email":"comproqa_ecommerce_stud@yopmail.com",
+            "password":"Compro21",
+            "fullName":"Compro QA"
         },
         "productItemName": "Test & Train Self-Study B2 First",
         // Page Completion Timeout
