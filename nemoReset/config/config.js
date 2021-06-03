@@ -46,9 +46,9 @@ module.exports = {
         "shopFrontURL": "https://www.testandtrain.com/",        
         "orderStatusPageURL": "",
         "student": {
-            "email":"comproqa_ecommerce_stud@yopmail.com",
-            "password":"Compro21",
-            "fullName":"Compro QA"
+            "email":"cqaproduser1@gmail.com",
+            "password":"Compro11",
+            "fullName":"Cmpqa Support"
         },
         "productItemName": "Test & Train Self-Study B2 First",
         // Page Completion Timeout
