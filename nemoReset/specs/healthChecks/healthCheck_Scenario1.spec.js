@@ -13,7 +13,7 @@ describe('ECommerce - Health Check Test', function() {
       .url(config[testEnv].shopFrontURL, function() {
         console.log("URL: " + config[testEnv].shopFrontURL + " launched successfully")
       })
-      .maximizeWindow(function() {
+      .resizeWindow(800, 600, function() {
         done();
       });
   });

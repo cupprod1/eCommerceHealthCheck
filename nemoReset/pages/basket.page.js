@@ -15,7 +15,8 @@ module.exports = {
         },
 
         goToCheckoutButton: {
-            selector: 'div.basket-summary__info-wrapper > button.checkout-btn'
+            selector: '//div[contains(@class, "basket-summary")]//button[contains(@class, "checkout-btn") and not(contains(@aria-hidden, "true"))]',
+            locateStrategy: 'xpath'
         },
 
         confirmationDialog: {
@@ -54,6 +55,7 @@ module.exports = {
                 this.api.perform(function() {
                     testlog.info("Checking if Go To Checkout button is visible on Basket Page")
                 })
+                this.api.useXpath();
                 this.api.waitForElementVisible(this.elements.goToCheckoutButton.selector,60000,"Go To Checkout button is not visible");
                 this.api.perform(function() {
                     testlog.info("Clicking on Go To Checkout button on Basket Page")
@@ -61,6 +63,7 @@ module.exports = {
                 this.api.click(this.elements.goToCheckoutButton.selector, function(result) {
                     this.assert.equal(result.status, 0, "Go To Checkout Button is not clickable");
                 })
+                this.api.useCss();
                 this.api.perform(function() {
                     testlog.info("Go To Checkout button on Basket Page is clicked")
                 })
