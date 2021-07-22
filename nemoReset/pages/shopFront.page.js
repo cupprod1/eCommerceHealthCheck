@@ -3,7 +3,7 @@ require("./../lib/logging.js");
 module.exports = {
 	elements: {
 		buyNowButton: {
-			selector: 'button#tnt-content-product-buy-now-btn'
+			selector: 'button#tnt-content-product-buy-now-btn-1'
 		}
 	},
 
