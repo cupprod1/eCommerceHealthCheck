@@ -7,7 +7,7 @@ module.exports = {
 		},
 
         cardHolderName: {
-            selector: 'div.address-details > div:nth-child(1)'
+            selector: 'div.address-details > p:nth-child(1)'
         }
 	},
 
